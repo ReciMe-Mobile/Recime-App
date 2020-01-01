@@ -1,15 +1,17 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import Modal from "react-native-modal"
+import {View, Text, StyleSheet, Modal} from 'react-native'
+import {connect} from 'react-redux'
+import {withNavigation} from 'react-navigation'
 
-export default class AddScreen extends React.Component {
+class AddCategory extends React.Component {
 
-  state = {
-    isVisible: true
-  }
-
-  componentDidMount() {
-    this.setState({ isVisible: true })
+  constructor(props) {
+    super(props)
+    this.state = {
+      isVisible: false,
+      name: '',
+      icon: ''
+    }
   }
 
   render() {
@@ -18,12 +20,6 @@ export default class AddScreen extends React.Component {
           onBackdropPress={() => this.setState({ isVisible: false })}
       >
         <View>
-          <Text>Add recipe from library</Text>
-        </View>
-        <View>
-          <Text>Take photo of recipe</Text>
-        </View>
-        <View>
           <Text>Add category</Text>
         </View>
       </Modal>
@@ -31,7 +27,7 @@ export default class AddScreen extends React.Component {
   }
 }
 
-AddScreen.navigationOptions = {
+AddCategory.navigationOptions = {
   header: null
 }
 
@@ -45,5 +41,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     margin: 0,
     height: 200,
+    marginBottom: 100,
+    marginTop: 100
   }
 })
+
+export default withNavigation(connect(null)(AddCategory))

@@ -18,7 +18,7 @@ class CategoriesScreen extends React.Component {
       <ScrollView>
        <View style={styles.categoriesContainer}>
       {
-        this.props.categories.length ? this.props.categories.map(category => <CategoryCard name={category.name} icon={category.icon} />) : null
+        this.props.categories.length ? this.props.categories.map(category => <CategoryCard key={category.id} name={category.name} icon={category.icon} />) : null
       }
       </View> 
       </ScrollView>
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   categoriesContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     flexWrap: 'wrap',
     marginTop: 20,
     width: '100%',

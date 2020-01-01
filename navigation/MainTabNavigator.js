@@ -6,7 +6,6 @@ import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import AddScreen from '../screens/AddScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import CategoriesScreen from '../screens/CategoriesScreen'
 
@@ -16,6 +15,7 @@ import FavoritesScreen from '../screens/FavoritesScreen';
 import GroceryList from '../screens/GroceryList'
 import CalendarScreen from '../screens/CalendarScreen'
 import AddButton from '../components/AddButton'
+import AddCategory from '../components/AddCategory'
 
 const HomeNav = createMaterialTopTabNavigator({
   Categories: CategoriesScreen,
@@ -145,7 +145,10 @@ tabNavigator.path = '';
 
 const MainNav = createSwitchNavigator({
   tabNavigator,
-  HomeNav
+  HomeNav,
+  AddCategory: {
+    screen: AddCategory
+  }
 })
 
 export default MainNav;
